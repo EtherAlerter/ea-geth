@@ -1,0 +1,13 @@
+{
+  "name": "ea-geth",
+  "version": "1.0.0",
+  "author": "Jamie Hale <jamiesonhale@gmail.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build:dev": "docker build -t ea-geth:dev --build-arg rpcApiPort=8545 .",
+    "build:stage": "docker build -t ea-geth:stage --build-arg rpcApiPort=8545 .",
+    "build:prod": "docker build -t ea-geth:prod --build-arg rpcApiPort=8545 .",
+    "start": "docker run -p 8545:8545 --mount source=geth-data,target=/var/local/geth ea-geth:dev",
+    "shell": "docker exec -it ea-geth:dev /bin/bash"
+  }
+}
